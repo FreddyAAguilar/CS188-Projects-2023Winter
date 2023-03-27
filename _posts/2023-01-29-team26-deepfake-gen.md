@@ -90,23 +90,25 @@ The following dataset used is a subset of the the Presidents' Face Dataset which
 # DeepFaceLab & Implementation
 
 # FaceSwap & Implementation 
-The folowing [colab](https://colab.research.google.com/drive/1_j_0N9uCR47ms5paXTKgQVTq1M4GX-9M?usp=sharing) will be used as the setup but there is also a [locally based](https://github.com/deepfakes/faceswap/blob/master/INSTALL.md) installation method based on your hardware configuration. **NOTE: Colab does not support deepfake training unless you pay premium and keep the session active throughout the whole training prcoess. The local based repo provided by u/deepfake is better.**
+The folowing [colab](https://colab.research.google.com/drive/1_j_0N9uCR47ms5paXTKgQVTq1M4GX-9M?usp=sharing) will be used as the setup but there is also a [locally based](https://github.com/deepfakes/faceswap/blob/master/INSTALL.md) installation method based on your hardware configuration. 
+
+**NOTE: Colab does not support deepfake training unless you pay premium and keep the session active throughout the whole training prcoess. The local based repo provided by u/deepfake is better or run the repo off a virtual machine with a GPU.**
 
 The process can be divided into three parts:
 
 1. Extract
     
-    This step will take photos from an `src` folder and extract faces into an `extract` folder. In the extract folder, there will be all the faces recognized and used for training. Be sure to delete or remove an incorrectly identified faced. It is best to have a seperate folder for each person extracted.
+    This step will take photos from a `src` folder and extract faces into an `extract` folder. In the extract folder, there will be all the faces recognized and used for training. Be sure to delete or remove any incorrectly identified faced. It is best to have a seperate folder for each person extracted.
 
 
 2. Train
 
-    This step will take photos from two folders containing pictures of both faces and train a model that will be saved inside the `models` folder. This step will be a long process and be sure
+    This step will take photos from the `extract` folders containing pictures of both faces and train a model that will be saved inside the `models` folder. This step will be a long process and be sure to have an appropiate GPU. I used up all the credit of my GCloud VM and struggled with my local RTX 3070 due to low VRAM.
 
 
 3. Convert
 
-    This step will take photos from original folder and apply new faces into `modified` folder.
+    This step will take photos or vidoes from any set in the `extract` folder and apply new faces into `converted` folder based on what model from the `models` folder was used.
 
 
 
@@ -115,10 +117,24 @@ The process can be divided into three parts:
 # Conclusion
 
 # Video Demo
+The following are videos of small speeches by Biden and Trump Side-by-Side between their originals and respective model.
+
+## Biden's Speech
+### Faceswap
+<iframe width="560" height="315" src="https://www.youtube.com/embed/b2eK4vkO-vs" frameborder="0" allowfullscreen></iframe>
+
+### DeepFakeLab
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uafp6ioelHU" frameborder="0" allowfullscreen></iframe>
+
+## Trump's Speech
+### Faceswap
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2OEhs59hy9k" frameborder="0" allowfullscreen></iframe>
+
+### DeepFakeLab
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fEJp0K8WCk4" frameborder="0" allowfullscreen></iframe>
 
 
-[First Order Motion Model for Image Animation](https://papers.nips.cc/paper/2019/hash/31c0b36aef265d9221af80872ceb62f9-Abstract.html) - [repo](https://github.com/AliaksandrSiarohin/first-order-model)
-
+# References
 [Fast Face-swap Using Convolutional Neural Networks](https://arxiv.org/abs/1611.09577) - [repo](https://github.com/deepfakes/faceswap#overview)
 
 [DeepFaceLab: A simple, flexible and extensible face swapping framework](https://arxiv.org/pdf/2005.05535v4.pdf) - [repo](https://github.com/iperov/DeepFaceLab)
